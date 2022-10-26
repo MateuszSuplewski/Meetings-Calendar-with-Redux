@@ -7,6 +7,14 @@
       "email": "jan@kowalski.not",
       "date": "2022-01-01",
       "time": "10:00"
+    },
+    {
+      "firstName": "Mateusz",
+      "lastName": "Suplewski",
+      "email": "matx3582@gmail.com",
+      "date": "2020-12-12",
+      "time": "12:20",
+      "id": 2
     }
   ]
 }
