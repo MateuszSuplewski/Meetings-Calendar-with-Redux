@@ -1,16 +1,15 @@
 const loadMeetingsAction = (meetings) => {
-    return {
-      type: 'load',
-      payload: meetings,
-    }
+  return {
+    type: 'load',
+    payload: meetings
   }
-  
-  const saveMeetingAction = (meetingData) => {
-    return {
-      type: 'save',
-      payload: meetingData,
-    }
+}
+
+const saveMeetingAction = (meetingData) => {
+  return {
+    type: 'save',
+    payload: meetingData
   }
-  
-  export { loadMeetingsAction, saveMeetingAction }
-  
+}
+
+export { loadMeetingsAction, saveMeetingAction }

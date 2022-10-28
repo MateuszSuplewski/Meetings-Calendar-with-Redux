@@ -1,26 +1,22 @@
-import React from 'react';
+import React from 'react'
+import { useSelector } from 'react-redux'
 
-class CalendarList extends React.Component {   
-    render() {
-        return <ul>{ this.renderMeetingsList() }</ul>
-    }
+const CalendarList = () => {
+  const meetings = useSelector((state) => state.meetings)
 
-    renderMeetingsList() {
-        return this.props.meetings.map(item => 
-            this.renderMeetingsItem(item)
-        );
-    }
+  const renderMeetingsList = () =>
+    meetings.map((item) => renderMeetingsItem(item))
 
-    renderMeetingsItem(itemData) {
-        return (
-            <li key={itemData.id}>
-                {itemData.date} {itemData.time} => 
-                <a href={`mailto: ${itemData.email}`}>
-                    {itemData.firstName} {itemData.lastName}
-                </a>
-            </li>
-        )
-    }
+  const renderMeetingsItem = ({ id, date, time, email, firstName, lastName }) => (
+    <li key={id}>
+      {date} {time} {'=> '}
+      <a href={`mailto: ${email}`}>
+        {firstName} {lastName}
+      </a>
+    </li>
+  )
+
+  return <ul>{renderMeetingsList()}</ul>
 }
 
 export default CalendarList

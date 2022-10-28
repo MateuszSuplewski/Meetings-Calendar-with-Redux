@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-import Calendar from './components/Calendar';
+import Calendar from './components/Calendar'
 
 class App extends React.Component {
-    render() {
-        return <Calendar />
-    }
+  render () {
+    return <Calendar />
+  }
 }
 
-export default App;
+export default App
