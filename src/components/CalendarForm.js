@@ -5,6 +5,10 @@ import { validateForm, getFieldsData, isFieldNameCorrect, isElementFunction } fr
 import { initialState, reducer } from '../reducers/form'
 import { setErrorsAction, clearFieldsValueAction, changeFieldValueAction } from '../actions/form'
 import useCalendarProvider from '../hooks/useCalendarProvider'
+import Input from './Input'
+import Button from './Button'
+import Form from './Form'
+import Error from './Error'
 
 const CalendarForm = () => {
   const apiUrl = 'http://localhost:3005/meetings'
@@ -31,38 +35,24 @@ const CalendarForm = () => {
     }
   }
 
-  const renderErrors = () =>
-    state.errors.map((err, index) => <li key={index}>{err}</li>)
+  const renderErrors = () => state.errors.map((err, index) => <Error key={index}>{err}</Error>)
 
-  const renderFormFieldsList = () =>
-    fields.map((field) => renderFormField(field))
+  const renderFormFieldsList = () => fields.map((field) => renderFormField(field))
 
   const renderFormField = ({ name, label, type, placeholder }) => (
-    <div key={name}>
-      <label>
-        {label}:{' '}
-        <input
-          type={type}
-          name={name}
-          onChange={handleFieldChange}
-          value={state[name]}
-          placeholder={placeholder}
-        />
-      </label>
-    </div>
+   <Input key={name} name={name} type={type} 
+   onChange={handleFieldChange} value={state[name]}
+   placeholder={placeholder}>
+    {label}
+   </Input>
   )
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} title={'Formularz spotkań'}>
       <ul>{renderErrors()}</ul>
       {renderFormFieldsList()}
-      <div>
-        <input
-          type={'submit'}
-          value={'zapisz'}
-        />
-      </div>
-    </form>
+        <Button type={'submit'}>Submit</Button>
+    </Form>
   )
 }
 

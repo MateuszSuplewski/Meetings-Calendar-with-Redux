@@ -1,22 +1,16 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import MeetingItem from './MeetingItem'
+import MeetingList from './MeetingList'
 
 const CalendarList = () => {
   const meetings = useSelector((state) => state.meetings)
 
-  const renderMeetingsList = () =>
-    meetings.map((item) => renderMeetingsItem(item))
+  const renderMeetingsList = () => meetings.map((item) => renderMeetingsItem(item))
 
-  const renderMeetingsItem = ({ id, date, time, email, firstName, lastName }) => (
-    <li key={id}>
-      {date} {time} {'=> '}
-      <a href={`mailto: ${email}`}>
-        {firstName} {lastName}
-      </a>
-    </li>
-  )
-
-  return <ul>{renderMeetingsList()}</ul>
+  const renderMeetingsItem = (itemData) => <MeetingItem key={itemData.id} itemData={itemData}/>
+  
+  return <MeetingList>{renderMeetingsList()}</MeetingList>
 }
 
 export default CalendarList

@@ -1,13 +1,14 @@
 import React from 'react'
 import CalendarList from './CalendarList'
 import CalendarForm from './CalendarForm'
+import CalendarWrapper from './CalendarWrapper'
 
 const Calendar = () => {
   return (
-    <section>
+    <CalendarWrapper>
       <CalendarList/>
       <CalendarForm/>
-    </section>
+    </CalendarWrapper>
   )
 }
 

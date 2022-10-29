@@ -5,6 +5,8 @@ import App from './App'
 import { createStore } from 'redux'
 import reducer from './reducers'
 import { Provider } from 'react-redux'
+import { Reset } from 'styled-reset'
+import { Normalize } from 'styled-normalize'
 
 const store = createStore(
   reducer,
@@ -12,8 +14,12 @@ const store = createStore(
 )
 
 ReactDOM.render(
+  <>
+  <Reset />
+  <Normalize />
   <Provider store={store}>
     <App />
-  </Provider>,
+  </Provider>
+  </>,
   document.querySelector('#root')
 )
