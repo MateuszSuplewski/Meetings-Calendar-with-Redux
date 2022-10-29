@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import MeetingItem from './MeetingItem'
-import MeetingList from './MeetingList'
+import MeetingItem from '../styled/MeetingItem'
+import MeetingList from '../styled/MeetingList'
 
 const CalendarList = () => {
   const meetings = useSelector((state) => state.meetings)

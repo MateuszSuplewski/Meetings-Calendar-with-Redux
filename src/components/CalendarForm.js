@@ -1,14 +1,13 @@
 import React, { useReducer } from 'react'
 import fields from '../formFieldsData'
-
 import { validateForm, getFieldsData, isFieldNameCorrect, isElementFunction } from '../helper'
 import { initialState, reducer } from '../reducers/form'
 import { setErrorsAction, clearFieldsValueAction, changeFieldValueAction } from '../actions/form'
 import useCalendarProvider from '../hooks/useCalendarProvider'
-import Input from './Input'
-import Button from './Button'
-import Form from './Form'
-import Error from './Error'
+import Input from '../styled/Input'
+import Button from '../styled/Button'
+import Form from '../styled/Form'
+import Error from '../styled/Error'
 
 const CalendarForm = () => {
   const apiUrl = 'http://localhost:3005/meetings'

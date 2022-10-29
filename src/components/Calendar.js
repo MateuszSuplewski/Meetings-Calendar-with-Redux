@@ -1,7 +1,7 @@
 import React from 'react'
 import CalendarList from './CalendarList'
 import CalendarForm from './CalendarForm'
-import CalendarWrapper from './CalendarWrapper'
+import CalendarWrapper from '../styled/CalendarWrapper'
 
 const Calendar = () => {
   return (

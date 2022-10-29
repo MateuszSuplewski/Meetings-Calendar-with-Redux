@@ -5,10 +5,9 @@ const SMeetingList = styled.ul`
   flex-wrap: wrap;
   justify-content: flex-end;
 
-  @media screen and (max-width: 1024px){
-  justify-content: center;
- }
-
+  @media screen and (max-width: 1024px) {
+    justify-content: center;
+  }
 `
 
 export { SMeetingList }

@@ -15,13 +15,14 @@ const SInput = styled.input`
   border-radius: 3px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   color: rgba(0, 0, 0, 0.7);
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; // do style global
+  font-family: ${({ theme }) => theme.secondaryFont};
 `
 
 const SInputLabel = styled.label`
   width: 100%;
   padding: 0 0 0.25rem 0.25rem;
   font-size: 1.125rem;
+  font-family: ${({ theme }) => theme.primaryFont};
 `
 
 export { SInputContainer, SInputLabel, SInput }

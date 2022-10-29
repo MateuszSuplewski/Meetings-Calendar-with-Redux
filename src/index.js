@@ -7,6 +7,8 @@ import reducer from './reducers'
 import { Provider } from 'react-redux'
 import { Reset } from 'styled-reset'
 import { Normalize } from 'styled-normalize'
+import { ThemeProvider } from 'styled-components'
+import themeSettings from './theme'
 
 const store = createStore(
   reducer,
@@ -18,7 +20,9 @@ ReactDOM.render(
   <Reset />
   <Normalize />
   <Provider store={store}>
-    <App />
+    <ThemeProvider theme={themeSettings}>
+      <App />
+    </ThemeProvider>
   </Provider>
   </>,
   document.querySelector('#root')
