@@ -1,6 +1,9 @@
 import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
 
-const SMeetingItem = styled.li`
+const DefaultSMeetingItem = styled.li`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -30,4 +33,20 @@ const SMeetingContent = styled.p`
   font-family: ${({ theme }) => theme.secondaryFont};
 `
 
-export { SMeetingItem, SMeetingLink, SMeetingContent }
+const SFontAwesomeDeleteIcon = styled(FontAwesomeIcon)`
+  cursor: pointer;
+  align-self: flex-end;
+  color: ${({ theme }) => theme.errorColor};
+`
+
+const SDeleteIcon = ({ onClick }) => (
+  <SFontAwesomeDeleteIcon
+    icon={faDeleteLeft}
+    size={'2x'}
+    onClick={onClick}
+  />
+)
+
+const SMeetingItem = styled(DefaultSMeetingItem)(({ style }) => style)
+
+export { SMeetingItem, SMeetingLink, SMeetingContent, SDeleteIcon }

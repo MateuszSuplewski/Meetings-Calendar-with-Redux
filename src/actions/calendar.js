@@ -12,4 +12,11 @@ const saveMeetingAction = (meetingData) => {
   }
 }
 
-export { loadMeetingsAction, saveMeetingAction }
+const deleteMeetingAction = (meetingId) => {
+  return {
+    type: 'delete',
+    payload: meetingId
+  }
+}
+
+export { loadMeetingsAction, saveMeetingAction, deleteMeetingAction }
