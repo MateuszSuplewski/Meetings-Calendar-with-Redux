@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const SForm = styled.form`
+const DefaultSForm = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,5 +28,7 @@ const SFormTitle = styled.h3`
   font-weight: 600;
   font-family: ${({ theme }) => theme.secondaryFont};
 `
+
+const SForm = styled(DefaultSForm)(({ style }) => style)
 
 export { SForm, SFormTitle }

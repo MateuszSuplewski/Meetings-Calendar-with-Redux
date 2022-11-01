@@ -1,11 +1,11 @@
 import React from 'react'
-import StyledButton from './Button.styled'
+import SButton from './Button.styled'
 
 const Button = ({ onClick, style, type = 'button', children }) => {
   return (
-    <StyledButton style={style} type={type} onClick={onClick}>
+    <SButton style={style} type={type} onClick={onClick}>
       {children}
-    </StyledButton>
+    </SButton>
   )
 }
 

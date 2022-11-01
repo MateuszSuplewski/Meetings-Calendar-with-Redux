@@ -8,6 +8,11 @@ export const reducer = (state = initialState, { type, payload }) => {
       return { ...state, meetings: payload }
     case 'save':
       return { ...state, meetings: [...state.meetings, payload] }
+    case 'delete':
+      return {
+        ...state,
+        meetings: state.meetings.filter((meeting) => meeting.id !== payload)
+      }
     default:
       return state
   }

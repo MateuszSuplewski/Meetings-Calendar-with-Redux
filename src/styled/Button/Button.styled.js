@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
-const DefaultStyledButton = styled.button`
-  width: ${({ fullWidth }) => (fullWidth ? 'calc(100% - 1rem)' : 'calc(300px - 1rem)')};
+const DefaultSButton = styled.button`
+  width: ${({ fullWidth }) =>
+    fullWidth ? 'calc(100% - 1rem)' : 'calc(300px - 1rem)'};
   padding: 0.625rem;
   margin: 0.5rem;
   background-color: ${({ theme }) => theme.buttonBackgroundColor};
@@ -19,6 +20,6 @@ const DefaultStyledButton = styled.button`
   }
 `
 
-const StyledButton = styled(DefaultStyledButton)(({ style }) => style)
+const SButton = styled(DefaultSButton)(({ style }) => style)
 
-export default StyledButton
+export default SButton

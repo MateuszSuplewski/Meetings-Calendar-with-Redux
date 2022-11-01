@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const SMeetingList = styled.ul`
+const DefaultSMeetingList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -10,4 +10,6 @@ const SMeetingList = styled.ul`
   }
 `
 
-export { SMeetingList }
+const SMeetingList = styled(DefaultSMeetingList)(({ style }) => style)
+
+export default SMeetingList

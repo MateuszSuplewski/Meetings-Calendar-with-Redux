@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const SCalendarWrapper = styled.section`
+const DefaultSCalendarWrapper = styled.section`
   display: flex;
   align-items: flex-start;
   flex-direction: row-reverse;
@@ -14,4 +14,6 @@ const SCalendarWrapper = styled.section`
   }
 `
 
-export { SCalendarWrapper }
+const SCalendarWrapper = styled(DefaultSCalendarWrapper)(({ style }) => style)
+
+export default SCalendarWrapper

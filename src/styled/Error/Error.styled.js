@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const SError = styled.li`
+const DefaultSError = styled.li`
   color: ${({ theme }) => theme.errorColor};
   padding: 0.125rem 0.5rem;
   box-sizing: border-box;
@@ -9,4 +9,6 @@ const SError = styled.li`
   font-family: ${({ theme }) => theme.errorFont};
 `
 
-export { SError }
+const SError = styled(DefaultSError)(({ style }) => style)
+
+export default SError

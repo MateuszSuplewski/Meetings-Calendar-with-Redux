@@ -1,9 +1,12 @@
 import React from 'react'
 import { SForm, SFormTitle } from './Form.styled'
 
-const Form = ({ title, onSubmit, children }) => {
+const Form = ({ title, onSubmit, children, style = { style } }) => {
   return (
-    <SForm onSubmit={onSubmit}>
+    <SForm
+      style={style}
+      onSubmit={onSubmit}
+    >
       <SFormTitle>{title}</SFormTitle>
       {children}
     </SForm>

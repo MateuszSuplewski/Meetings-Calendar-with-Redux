@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useEffect } from 'react'
 import fields from '../formFieldsData'
 import { validateForm, getFieldsData, isFieldNameCorrect, isElementFunction } from '../helper'
 import { initialState, reducer } from '../reducers/form'
@@ -8,11 +8,11 @@ import Input from '../styled/Input'
 import Button from '../styled/Button'
 import Form from '../styled/Form'
 import Error from '../styled/Error'
+import API_URL from '../apiData'
 
 const CalendarForm = () => {
-  const apiUrl = 'http://localhost:3005/meetings'
   const [state, dispatch] = useReducer(reducer, initialState)
-  const [, saveMeeting] = useCalendarProvider(apiUrl)
+  const [loadMeetings, saveMeeting] = useCalendarProvider(API_URL)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -39,18 +39,31 @@ const CalendarForm = () => {
   const renderFormFieldsList = () => fields.map((field) => renderFormField(field))
 
   const renderFormField = ({ name, label, type, placeholder }) => (
-   <Input key={name} name={name} type={type} 
-   onChange={handleFieldChange} value={state[name]}
-   placeholder={placeholder}>
-    {label}
-   </Input>
+    <Input
+      key={name}
+      name={name}
+      type={type}
+      onChange={handleFieldChange}
+      value={state[name]}
+      placeholder={placeholder}
+    >
+      {label}
+    </Input>
   )
 
+  useEffect(() => {
+    loadMeetings()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
-    <Form onSubmit={handleSubmit} title={'Formularz spotkań'}>
+    <Form
+      onSubmit={handleSubmit}
+      title={'Formularz spotkań'}
+    >
       <ul>{renderErrors()}</ul>
       {renderFormFieldsList()}
-        <Button type={'submit'}>Submit</Button>
+      <Button type={'submit'}>Submit</Button>
     </Form>
   )
 }

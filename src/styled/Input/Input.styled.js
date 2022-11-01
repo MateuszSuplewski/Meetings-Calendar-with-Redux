@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const SInputContainer = styled.div`
+const DefaultSInputContainer = styled.div`
   width: 300px;
   display: flex;
   flex-wrap: wrap;
@@ -24,5 +24,7 @@ const SInputLabel = styled.label`
   font-size: 1.125rem;
   font-family: ${({ theme }) => theme.primaryFont};
 `
+
+const SInputContainer = styled(DefaultSInputContainer)(({ style }) => style)
 
 export { SInputContainer, SInputLabel, SInput }

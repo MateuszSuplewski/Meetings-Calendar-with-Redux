@@ -1,9 +1,9 @@
 import React from 'react'
 import { SInputContainer, SInputLabel, SInput } from './Input.styled'
 
-const Input = ({ name, type, onChange, value, placeholder, children }) => {
+const Input = ({ name, type, onChange, value, placeholder, style, children }) => {
   return (
-    <SInputContainer>
+    <SInputContainer style={style}>
       <SInputLabel htmlFor={name}>{children}</SInputLabel>
       <SInput
         name={name}
